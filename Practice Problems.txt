@@ -1,0 +1,131 @@
+Linear Search:
+#include <stdio.h>
+#include <stdlib.h>
+
+void main() {
+    int i, n, l;
+    printf("Enter length of array:");
+    scanf("%d", &l);
+    int arr[l];
+    printf("Enter the elements of the array:\n");
+    for(i = 0; i < l; i++) {
+        scanf("%d", &arr[i]);
+    }
+    printf("Enter num to search:");
+    scanf("%d", &n);
+    for(i = 0; i < l; i++) {
+        if(arr[i] == n) {
+            printf("Element found");
+            break;
+        }
+    }
+}
+
+Enter length of array:5
+Enter the elements of the array:
+5 9 1 3 6
+Enter num to search:3
+Element found
+
+
+
+
+Binary Search:
+#include <stdio.h>
+#include <stdlib.h>
+
+void main() {
+    int i, n, mid, l;
+    printf("Enter length of array:");
+    scanf("%d", &l);
+    int arr[l];
+    printf("Enter the elements of the array:\n");
+    for(i = 0; i < l; i++) {
+        scanf("%d", &arr[i]);
+    }
+    printf("Enter num to search:");
+    scanf("%d", &n);
+    int left=0, right=l-1;
+    while(left <= right) {
+        mid = (left + right) / 2;
+        if(arr[mid] == n) {
+            printf("Element found");
+            break;
+        }
+        else if(arr[mid] < n) {
+            left = mid + 1;
+        }
+        else {
+            right = mid - 1;
+        }
+    }
+}
+
+Enter length of array:5
+Enter the elements of the array:
+9 4 2 7 5
+Enter num to search:7
+Element found
+
+
+
+
+Smallest Number:
+#include <stdio.h>
+#include <stdlib.h>
+
+void main() {
+    int i, l;
+    printf("Enter length of array:");
+    scanf("%d", &l);
+    int arr[l];
+    printf("Enter the elements of the array:\n");
+    for(i = 0; i < l; i++) {
+        scanf("%d", &arr[i]);
+    }
+    int s=arr[0], j;
+    for(i = 0; i < l; i++) {
+        if(arr[i] < s) {
+            s = arr[i];
+            j = i;
+        }
+    }
+    printf("Smallest element %d at pos %d", s, j);
+}
+
+Enter length of array:5
+Enter the elements of the array:
+4 7 8 1 9
+Smallest element 1 at pos 3
+
+
+
+
+
+Duplicates:
+#include <stdio.h>
+#include <stdlib.h>
+
+void main() {
+    int i, l, j;
+    printf("Enter length of array:");
+    scanf("%d", &l);
+    int arr[l];
+    printf("Enter the elements of the array:\n");
+    for(i = 0; i < l; i++) {
+        scanf("%d", &arr[i]);
+    }
+    for(i = 0; i < l; i++) {
+        for(j = i+1; j < l; j++) {
+            if(arr[i] == arr[j]) {
+                printf("Duplicate found");
+                break;
+            }
+        }
+    }
+}
+
+Enter length of array:6
+Enter the elements of the array:
+8 3 5 3 9 7
+Duplicate found
